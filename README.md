@@ -11,6 +11,15 @@ service, built with Expo, React Native, and NativeWind (Tailwind CSS).
 - Expo Router is **not** used; this is a single page with in-page scroll
   navigation (see `AGENTS.md`).
 
+## Features
+
+- Responsive landing page with meal plans, testimonials, FAQs, and pricing.
+- Pricing cards for three monthly plans, plus a promotional image card.
+- Pricing cards keep a consistent minimum height and adapt from a single
+  column on narrow screens to multiple columns on wider screens. Cards lift
+  slightly on hover where supported and provide press feedback on touch.
+- Reusable Unsplash image URLs are defined in `src/data/images.ts`.
+
 ## Getting started
 
 ```bash
@@ -42,10 +51,10 @@ SDK-compatible versions are resolved.
 
 ```
 src/
-  components/   UI sections + ui/Button
-  data/         static content + image URLs
-  screens/      HomeScreen, NotFoundScreen
-  theme/        design-token palette
+  components/   Landing-page sections and reusable UI components
+  data/         Static testimonials and image URLs
+  screens/      HomeScreen and NotFoundScreen
+  theme/        Design-token palette
 ```
 
 ## Configuration
