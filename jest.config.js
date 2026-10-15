@@ -1,7 +1,7 @@
 const path = require("path");
 
 const expoModulesCore = path
-  .dirname(require.resolve("expo/node_modules/expo-modules-core/package.json"))
+  .dirname(require.resolve("expo-modules-core/package.json"))
   .split(path.sep)
   .join("/");
 

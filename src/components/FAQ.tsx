@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Animated, View, Text, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import Button from "./ui/Button";
@@ -50,13 +50,20 @@ function AccordionItem({
 }) {
   const [progress] = useState(() => new Animated.Value(0));
   const [contentHeight, setContentHeight] = useState(0);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    Animated.timing(progress, {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    const animation = Animated.timing(progress, {
       toValue: isOpen ? 1 : 0,
       duration: 220,
       useNativeDriver: false,
-    }).start();
+    });
+    animation.start();
+    return () => animation.stop();
   }, [isOpen, progress]);
 
   const height = progress.interpolate({
