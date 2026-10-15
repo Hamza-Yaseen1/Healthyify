@@ -17,16 +17,24 @@ npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — re
 npx expo start              # start the dev server
 npx expo lint               # lint
 npx tsc --noEmit            # typecheck
+npm test                    # run jest tests (jest-expo)
 npx expo-doctor             # diagnose dependency and config issues
 npx expo install --fix      # fix incompatible package versions
 ```
 
-Run lint and typecheck before declaring any task done.
+Run lint, typecheck, and tests before declaring any task done.
 
 ## Navigation & Routing
 
-- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a screen, `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
-- Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
+- This app is currently a **single-page landing site** with in-page scroll
+  navigation: `src/screens/HomeScreen.tsx` renders every section inside one
+  `ScrollView` and the header scrolls to section offsets. **Expo Router is not
+  used** — do not add it unless the app grows into multiple real screens.
+- If routing is introduced later, use **Expo Router**: routes live in
+  `src/app/` — every file there is a screen, `_layout.tsx` files define
+  navigators. Keep non-route code (components, hooks, utils) outside
+  `src/app/`. Import `Link`, `router`, and `useLocalSearchParams` from
+  `expo-router`.
 - Docs: https://docs.expo.dev/router/introduction.md
 
 ## Building with EAS
