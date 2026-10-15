@@ -1,68 +1,65 @@
-# healthy-meals
+# Healthyify
 
-Healthyify — a single-page marketing landing site for a healthy meal-delivery
-service, built with Expo, React Native, and NativeWind (Tailwind CSS).
+Healthyify is a responsive healthy meal-delivery landing page built with Expo, React Native, TypeScript, and NativeWind.
 
-## Stack
+**Live Demo:** [https://healthyify.vercel.app](https://healthyify.vercel.app)
 
-- Expo SDK 57 / React Native 0.86 / React 19
-- NativeWind v4 (Tailwind CSS for React Native)
-- TypeScript (strict)
-- Expo Router is **not** used; this is a single page with in-page scroll
-  navigation (see `AGENTS.md`).
+## Run locally
 
-## Features
+### Requirements
 
-- Responsive landing page with meal plans, testimonials, FAQs, and pricing.
-- Pricing cards for three monthly plans, plus a promotional image card.
-- Pricing cards keep a consistent minimum height and adapt from a single
-  column on narrow screens to multiple columns on wider screens. Cards lift
-  slightly on hover where supported and provide press feedback on touch.
-- Reusable Unsplash image URLs are defined in `src/data/images.ts`.
+- Node.js and npm
+- Git
 
-## Getting started
+### Setup
 
 ```bash
-npm install
-npx expo start
+git clone https://github.com/Hamza-Yaseen1/Healthyify.git
+cd Healthyify
+npm ci
 ```
 
-Then open the app in a development build or Expo Go. Other scripts:
+### Start the app
+
+To run the web version locally:
 
 ```bash
-npm run android     # start on Android
-npm run ios         # start on iOS
-npm run web         # start on web
+npm run web
 ```
+
+To start Expo and choose a target, or open the app on a device with Expo Go:
+
+```bash
+npm start
+```
+
+You can also start directly on Android or iOS:
+
+```bash
+npm run android
+npm run ios
+```
+
+Running on Android or iOS requires the corresponding development tools, or a compatible Expo Go setup.
 
 ## Quality checks
 
 ```bash
-npm run lint        # eslint (expo config)
-npm run typecheck   # tsc --noEmit
-npm test            # jest (jest-expo)
+npm run lint
+npm run typecheck
+npm test
 ```
-
-`npx expo-doctor` diagnoses dependency and config issues. Use
-`npx expo install <package>` (never `npm install`) to add dependencies so
-SDK-compatible versions are resolved.
 
 ## Project structure
 
-```
+```text
 src/
-  components/   Landing-page sections and reusable UI components
+  components/   Landing-page sections and UI components
   data/         Static testimonials and image URLs
-  screens/      HomeScreen and NotFoundScreen
-  theme/        Design-token palette
+  screens/      App screens
+  theme/        Design tokens
 ```
-
-## Configuration
-
-- App config: `app.json` (scheme, icons, splash, plugins).
-- Design tokens: `tailwind.config.js`; the component-facing palette mirrors
-  them in `src/theme/colors.ts`.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT. See [LICENSE](LICENSE).
